@@ -1,25 +1,40 @@
-<img src="assets/IWA.svg" width=200 align="right">
+<img src="assets/ISA.svg" width=200 align="right">
 
-# IWA - Input Weather A
-This is a Weather Sensor measuring Atmospheric **Temperature** and Relative **Humidity**
+# ISA - Input Sound A
+This is a Sound Sensor measuring **Sound Waves** 
 | Specifications | |
 | --: | :--: |
-| Communication | I²C |
-| I²C Address | 0x44 |
-| ChipSet | Sensirion SHT30-DIS|
-| Datasheet | [.pdf](https://.pdf) |
-| Suggested Arduino Library | [GitHub](https://github.com/) |
-| Temperature Accuracy | ±0.2 °C |
-| Temperature Range | -40 to 125 °C |
-| Humidity Accuracy | ± 2 %RH |
-| Humidity Range | 0 to 100 %RH |
+| Communication | I²S |
+| ChipSet | TDK InvenSense ICS-43434|
+| Datasheet | [.pdf](https://invensense.tdk.com/wp-content/uploads/2016/02/DS-000069-ICS-43434-v1.2.pdf) |
+| Suggested Arduino Library | ESP32 Built-In |
 
-## Supported I²C Modes
-- [ ] 100 kbit/s Standard Mode (SM) 
-- [ ] 400 kbit/s	Fast Mode	FM
-- [ ] 1 Mbit/s	Fast Mode Plus	FM+
-- [ ] 3.4Mbit/s	High Speed Mode	HS
-- [ ] 5 Mbit/s	Ultra Fast Mode	UFM
+
+| FEATURES | | |
+| --: | :--: | :--: |
+| Spec | High Performance Mode | Low Power Mode|
+| Sensitivity | −26 dB FS ±1 dB | −26 dB FS ±1 dB | 
+| SNR |  65 dBA| 64 dBA | 
+| Current| 490 μA | 230 μA | 
+| AOP | 120 dB SPL | 120 dB SPL  | 
+| Sample Rate| 23 – 51.6 kHz | 6.25 – 18.75 kHz | 
+| Precision | 24-bit data| 24-bit data| 
+| Frequency response | from 60 Hz to 20 kHz| from 60 Hz to 20 kHz| 
+| Power supply rejection|  −100 dB FS| −100 dB FS| 
+
+
+## I²S Connection
+The xChip does not have an I²S connection so the Serial Port is reused for I²S:
+- **WS** is connected to **TX**, (CWA v2: pin **43**)
+- **SCK** is connected to **RX**, (CWA v2: pin **44**)
+- **SD** is connected to **IO**, (CWA v2: pin **1**)
+- The default channel is the **right** channel
+
+The xChip allow for alternative pin use by cutting & soldering the jumpers on the back of the xChip:
+- Use I2C instead of Serial Port
+  - **WS** is connected to **SDA**, (CWA v2: pin **18**)
+  - **SCK** is connected to **SCL**, (CWA v2: pin **19**)  
+- Use **left** channel
 
 # License: 
 <img src="assets/CC-BY-NC-SA.svg" width=200 align="right">
