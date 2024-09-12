@@ -14,21 +14,24 @@ const i2s_config_t i2s_config = {
     .tx_desc_auto_clear = false,
     .fixed_mclk = 0};
 
-// I2S pin configuration
-const i2s_pin_config_t pin_config = {
-    .bck_io_num = I2S_SCK,
-    .ws_io_num = I2S_WS,
-    .data_out_num = I2S_PIN_NO_CHANGE,
-    .data_in_num = I2S_SD};
+
 
 // Simplified A-weighting filter coefficients
 // Note: These are approximate and designed for 44.1kHz. Adjust coefficients if using a different sample rate.
 const float a_weighting_filter_coeffs[3] = {0.255978, 0.488037, 0.255978};
 
 ISA::ISA() {
+
 }
 
-bool ISA::begin() {
+bool ISA::begin(uint8_t ws, uint8_t sck, uint8_t sd) {
+// I2S pin configuration
+const i2s_pin_config_t pin_config = {
+    .bck_io_num = sck,
+    .ws_io_num = ws,
+    .data_out_num = I2S_PIN_NO_CHANGE,
+    .data_in_num = sd};
+
     i2s_driver_install(I2S_NUM_0, &i2s_config, 0, NULL);
     i2s_set_pin(I2S_NUM_0, &pin_config);
     return true;

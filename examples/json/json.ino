@@ -8,6 +8,8 @@
 #ifndef I2S_SD
 #define I2S_SD 1
 #endif
+
+// Specifics
 #include "ISA.h"
 ISA input;
 
@@ -16,7 +18,7 @@ void setup() {
     delay(1000);
     Serial.printf("\nISA JSON Test\n");
 
-    if (input.begin()) {
+    if (input.begin(I2S_WS, I2S_SCK, I2S_SD)) {
         Serial.println("ISA initialized successfully.");
     } else {
         Serial.println("Failed to initialize ISA!");

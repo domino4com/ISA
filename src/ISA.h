@@ -9,7 +9,7 @@
 class ISA {
    public:
     ISA();
-    bool begin();
+    bool begin(uint8_t ws = 43, uint8_t sck = 44, uint8_t sd = 1);
     bool getData(double &spl);
     bool getJSON(JsonObject &doc);
 
