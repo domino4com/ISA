@@ -9,10 +9,9 @@ This is a Sound Sensor measuring **Sound Waves**
 | Datasheet | [.pdf](https://invensense.tdk.com/wp-content/uploads/2016/02/DS-000069-ICS-43434-v1.2.pdf) |
 | Suggested Arduino Library | ESP32 Built-In |
 
-
-| FEATURES | | |
+### Features
+| Specifications | High Performance Mode | Low Power Mode|
 | --: | :--: | :--: |
-| Spec | High Performance Mode | Low Power Mode|
 | Sensitivity | −26 dB FS ±1 dB | −26 dB FS ±1 dB | 
 | SNR |  65 dBA| 64 dBA | 
 | Current| 490 μA | 230 μA | 
@@ -31,7 +30,7 @@ The xChip does not have an I²S connection so the Serial Port is reused for I²S
 - The default channel is the **right** channel
 
 The xChip allow for alternative pin use by cutting & soldering the jumpers on the back of the xChip:
-- Use I2C instead of Serial Port
+- Use I²C instead of Serial Port
   - **WS** is connected to **SDA**, (CWA v2: pin **18**)
   - **SCK** is connected to **SCL**, (CWA v2: pin **19**)  
 - Use **left** channel
