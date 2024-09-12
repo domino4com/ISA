@@ -36,6 +36,15 @@ The xChip allow for alternative pin use by cutting & soldering the jumpers on th
   - **SCK** is connected to **SCL**, (CWA v2: pin **19**)  
 - Use **left** channel
 
+## I²S Connection WARNING
+Because the I²S is connected to the Serial Port, the xChip has to be removed if programming using the [PPU](https://github.com/domino4com/PPU). If programming using the USB port (CWA v2), then the ISA can be kept plugged in.
+Also using the Serial Port over the PPU as a Serial Monitor is also impossible, while it works over the USB. Remember to enable USB CDC on Boot, if using the USB port as a serial monitor. 
+Finally the PPU can't be plugged in at all while using the ISA.
+Because the I²S is also connected to the IO pin used by the [Soil Moisture sensor - IWC](https://github.com/domino4com/IWC), the Soil Moisture sensor cannot be used together with the ISA.
+### TL;DR
+No PPU and no IWA with the ISA.
+
+
 # License: 
 <img src="assets/CC-BY-NC-SA.svg" width=200 align="right">
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License
