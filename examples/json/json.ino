@@ -1,4 +1,13 @@
 #include <ArduinoJson.h>
+#ifndef I2S_WS
+#define I2S_WS 43
+#endif
+#ifndef I2S_SCK
+#define I2S_SCK 44
+#endif
+#ifndef I2S_SD
+#define I2S_SD 1
+#endif
 #include "ISA.h"
 ISA input;
 
