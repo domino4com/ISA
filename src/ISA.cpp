@@ -70,10 +70,10 @@ bool ISA::getData(double &spl) {
     return true;  // Return true for successful read (add error handling if needed)
 }
 
-bool ISA::getJSON(JsonObject &doc) {
+bool ISA::getJSON(JsonDocument &doc) {
     readSensor();
 
-    JsonArray dataArray = doc.createNestedArray("ISA");
+     JsonArray dataArray = doc["ISA"].to<JsonArray>();
 
     JsonObject dataSet = dataArray.createNestedObject();  // First data set
     dataSet["name"] = "Sound Pressure Level";

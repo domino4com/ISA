@@ -27,11 +27,10 @@ void setup() {
 }
 
 void loop() {
-    StaticJsonDocument<256> doc;
-    JsonObject root = doc.to<JsonObject>();
+    JsonDocument doc;
 
-    if (input.getJSON(root)) {
-        serializeJsonPretty(root, Serial);
+    if (input.getJSON(doc)) {
+        serializeJsonPretty(doc, Serial);
         Serial.println();
     } else {
         Serial.println("Failed to get ISA data.");
