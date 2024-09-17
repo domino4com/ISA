@@ -15,6 +15,7 @@ ISA input;
 
 void setup() {
     Serial.begin(115200);
+        pinMode(0, INPUT);
     delay(1000);
     Serial.printf("\nISA JSON Test\n");
 
@@ -24,17 +25,19 @@ void setup() {
         Serial.println("Failed to initialize ISA!");
         exit(0);
     }
+
 }
 
 void loop() {
     JsonDocument doc;
+    Serial.print(digitalRead(0));
 
     if (input.getJSON(doc)) {
-        serializeJsonPretty(doc, Serial);
+        // serializeJsonPretty(doc, Serial);
         Serial.println();
     } else {
         Serial.println("Failed to get ISA data.");
     }
 
-    delay(2000);
+    delay(500);
 }
