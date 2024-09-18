@@ -30,10 +30,9 @@ void setup() {
 
 void loop() {
     JsonDocument doc;
-    Serial.print(digitalRead(0));
 
     if (input.getJSON(doc)) {
-        // serializeJsonPretty(doc, Serial);
+        serializeJsonPretty(doc, Serial);
         Serial.println();
     } else {
         Serial.println("Failed to get ISA data.");

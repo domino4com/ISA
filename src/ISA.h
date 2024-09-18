@@ -5,7 +5,6 @@
 #include "Arduino.h"
 #include <driver/i2s.h>
 #include <cmath>
-#include "ISA.xbm"
 
 class ISA {
    public:
